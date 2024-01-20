@@ -1,0 +1,245 @@
+<div *ngIf="letsPlayTheGame" class="letsPlayTheGame">
+  <h2>Select the Planets you want to search in:</h2>
+  <h1>Time Taken: {{ TimeTaken }}</h1>
+
+  <div class="destinations">
+    <form class="" [formGroup]="playTheGameForm" (ngSubmit)="findFalcon()">
+      <div class="destination1">
+        <h4>Destination 1</h4>
+        <mat-form-field>
+          <mat-label>Select</mat-label>
+          <mat-select formControlName="destination1">
+            <mat-option
+              *ngFor="let destination of Destinations"
+              [value]="destination.name"
+              (click)="
+                [destinationSelected($event), enableDestinationOneVehicles()]
+              "
+            >
+              {{ destination.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="isDestinationOneSelected">
+          <input
+            type="radio"
+            value="Space pod"
+            formControlName="destination1VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationOneSelect()]"
+          />
+          <label>Space pod ( {{ this.Vehicles[0].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space rocket"
+            formControlName="destination1VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationOneSelect()]"
+          />
+          <label>Space rocket ( {{ this.Vehicles[1].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space shuttle"
+            formControlName="destination1VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationOneSelect()]"
+          />
+          <label>Space shuttle ( {{ this.Vehicles[2].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space ship"
+            formControlName="destination1VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationOneSelect()]"
+          />
+          <label>Space ship ( {{ this.Vehicles[3].total_no }} )</label>
+        </div>
+        <h3 *ngIf="destination1Value">
+          Destination 1 selected: {{ desOneSelectedValue }}
+        </h3>
+      </div>
+
+      <div class="destination2">
+        <h4>Destination 2</h4>
+        <mat-form-field>
+          <mat-label>Select</mat-label>
+          <mat-select formControlName="destination2">
+            <mat-option
+              *ngFor="let destination of Destinations"
+              [value]="destination.name"
+              (click)="
+                [destinationSelected($event), enableDestinationTwoVehicles()]
+              "
+            >
+              {{ destination.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="isDestinationTwoSelected">
+          <input
+            type="radio"
+            value="Space pod"
+            formControlName="destination2VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationTwoSelect()]"
+          />
+          <label>Space pod ( {{ this.Vehicles[0].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space rocket"
+            formControlName="destination2VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationTwoSelect()]"
+          />
+          <label>Space rocket ( {{ this.Vehicles[1].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space shuttle"
+            formControlName="destination2VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationTwoSelect()]"
+          />
+          <label>Space shuttle ( {{ this.Vehicles[2].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space ship"
+            formControlName="destination2VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationTwoSelect()]"
+          />
+          <label>Space ship ( {{ this.Vehicles[3].total_no }} )</label>
+        </div>
+        <h3 *ngIf="destination2Value">
+          Destination 2 selected: {{ desTwoSelectedValue }}
+        </h3>
+      </div>
+
+      <div class="destination3">
+        <h4>Destination 3</h4>
+        <mat-form-field>
+          <mat-label>Select</mat-label>
+          <mat-select formControlName="destination3">
+            <mat-option
+              *ngFor="let destination of Destinations"
+              [value]="destination.name"
+              (click)="
+                [destinationSelected($event), enableDestinationThreeVehicles()]
+              "
+            >
+              {{ destination.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="isDestinationThreeSelected">
+          <input
+            type="radio"
+            value="Space pod"
+            formControlName="destination3VehicleSelected"
+            (change)="
+              [vehicleSelected($event), disableDestinationThreeSelect()]
+            "
+          />
+          <label>Space pod ( {{ this.Vehicles[0].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space rocket"
+            formControlName="destination3VehicleSelected"
+            (change)="
+              [vehicleSelected($event), disableDestinationThreeSelect()]
+            "
+          />
+          <label>Space rocket ( {{ this.Vehicles[1].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space shuttle"
+            formControlName="destination3VehicleSelected"
+            (change)="
+              [vehicleSelected($event), disableDestinationThreeSelect()]
+            "
+          />
+          <label>Space shuttle ( {{ this.Vehicles[2].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space ship"
+            formControlName="destination3VehicleSelected"
+            (change)="
+              [vehicleSelected($event), disableDestinationThreeSelect()]
+            "
+          />
+          <label>Space ship ( {{ this.Vehicles[3].total_no }} )</label>
+        </div>
+        <h3 *ngIf="destination3Value">
+          Destination 3 selected: {{ desThreeSelectedValue }}
+        </h3>
+      </div>
+
+      <div class="destination4">
+        <h4>Destination 4</h4>
+        <mat-form-field>
+          <mat-label>Select</mat-label>
+          <mat-select formControlName="destination4">
+            <mat-option
+              *ngFor="let destination of Destinations"
+              [value]="destination.name"
+              (click)="
+                [destinationSelected($event), enableDestinationFourVehicles()]
+              "
+            >
+              {{ destination.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="isDestinationFourSelected">
+          <input
+            type="radio"
+            value="Space pod"
+            formControlName="destination4VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationFourSelect()]"
+          />
+          <label>Space pod ( {{ this.Vehicles[0].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space rocket"
+            formControlName="destination4VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationFourSelect()]"
+          />
+          <label>Space rocket ( {{ this.Vehicles[1].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space shuttle"
+            formControlName="destination4VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationFourSelect()]"
+          />
+          <label>Space shuttle ( {{ this.Vehicles[2].total_no }} )</label>
+          <input
+            type="radio"
+            value="Space ship"
+            formControlName="destination4VehicleSelected"
+            (change)="[vehicleSelected($event), disableDestinationFourSelect()]"
+          />
+          <label>Space ship ( {{ this.Vehicles[3].total_no }} )</label>
+        </div>
+        <h3 *ngIf="destination4Value">
+          Destination 4 selected: {{ desFourSelectedValue }}
+        </h3>
+      </div>
+      <div>
+        <button
+          class="btn"
+          mat-raised-button
+          color="accent"
+          [disabled]="!enableSubmitButton"
+        >
+          Find Falcon!
+        </button>
+        <button
+          class="btn"
+          mat-raised-button
+          color="warn"
+          (click)="resetGame()"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="showResultScreen">
+  <app-result-screen
+    [timeTaken]="TimeTaken"
+    [falconResult]="resultResponse"
+  ></app-result-screen>
+</div>

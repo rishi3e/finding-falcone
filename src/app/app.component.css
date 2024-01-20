@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#playTheGame {
+  overflow-y: scroll;
+  position: absolute;
+  top: 50px;
+  bottom: 55px;
+  margin: 5px 5px;
+  padding: 5px 5px;
+}

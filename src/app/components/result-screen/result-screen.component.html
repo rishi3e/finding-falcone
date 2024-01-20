@@ -1,0 +1,22 @@
+<div class="resultScreen">
+  <div *ngIf="isSuccess" class="success">
+    <h2>
+      Success! Congratulations on Finding Falcone. King Shan is mighty pleased.
+    </h2>
+    <h3>Time Taken: {{ timeTaken }}</h3>
+    <h3>Planet Found: {{ falconResult.planet_name }}</h3>
+  </div>
+
+  <div *ngIf="isFailure" class="failure">
+    <h2>Failure! Better luck next time.</h2>
+  </div>
+
+  <div *ngIf="isError" class="error">
+    <h2>
+      Error! Token not initialized. Please get a new toekn with the new /token
+      API.
+    </h2>
+  </div>
+
+  <button mat-raised-button color="warn" (click)="startAgain()">Start Again!!</button>
+</div>
